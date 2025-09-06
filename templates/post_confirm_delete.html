@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Delete {{ object.title }}</title></head>
+<body>
+  <h1>Delete "{{ object.title }}"?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'post_detail' object.pk %}">Cancel</a>
+  </form>
+</body>
+</html>
