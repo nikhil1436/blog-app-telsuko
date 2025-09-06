@@ -16,7 +16,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 
-    #get
+    #getget
     author=serializers.StringRelatedField() 
 
     #post
