@@ -14,7 +14,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.pagination import PageNumberPagination
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
-from django.conf import settings 
+#from django.conf import settings 
 from django.core.cache import cache
 from .forms import PostForm
 

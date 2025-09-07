@@ -12,9 +12,9 @@ urlpatterns=[
     path('post/<int:pk>/',views.post_detail, name='post_detail'),
     path("post/<int:pk>/update/", views.PostUpdateView.as_view(), name="post_edit"),
     path("post/<int:pk>/delete/", views.PostDeleteView.as_view(), name="post_delete"),
-    path('posts/api/',views.PostAPIView.as_view(),name='post-list'),
+    path('posts/api/',views.PostListCreateAPIView.as_view(),name='post-list'),
     path('api/token/', views.CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('posts/api/<int:pk>/',views.PostApiDetailView.as_view(),name='post-detail')
+    path('posts/api/<int:pk>/',views.PostDetailRetrieveUpdateDestroyAPIView.as_view(),name='post-detail')
     
 ]
