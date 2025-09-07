@@ -55,7 +55,7 @@ class StandardResultsSetPagination(PageNumberPagination):
     page_size=5
     page_size_query_param='page_size'
     max_page_size=20
-class PostAPIView(generics.ListCreateAPIView):
+class PostListCreateAPIView(generics.ListCreateAPIView):
     queryset=Post.objects.all()
     serializer_class=PostSerializer
     permission_classes=[IsAuthenticated]
@@ -72,7 +72,7 @@ class PostAPIView(generics.ListCreateAPIView):
 
         
 
-class PostApiDetailView(generics.RetrieveUpdateDestroyAPIView):
+class PostDetailRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset=Post.objects.all()
     serializer_class=PostSerializer
     permission_classes=[permissions.IsAuthenticated]
@@ -86,7 +86,7 @@ class PostApiDetailView(generics.RetrieveUpdateDestroyAPIView):
         
     def perform_destroy(self, instance):
         if instance.author != self.request.user:
-            raise PermissionDenied("you can't delete this post")
+            raise PermissionDenied("you can't delete this post")  
         instance.delete()
             
         
