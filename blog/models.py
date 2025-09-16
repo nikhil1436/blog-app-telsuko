@@ -9,7 +9,7 @@ class Post(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     #TRUE
     class Meta:
-        ordering=['-created_at']
+        ordering=['-created_at','-id']
 
     def __str__(self):
         return self.title
