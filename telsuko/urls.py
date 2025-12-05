@@ -19,13 +19,21 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    path('',include('blog.urls')),
-    path('accounts/',include('django.contrib.auth.urls')),
-    path('admin/', admin.site.urls),
+#urlpatterns = [
+    #path('',include('blog.urls')),
+    #path('accounts/',include('django.contrib.auth.urls')),
+    #path('admin/', admin.site.urls),
     #path('accounts/',include('accounts.urls')),
     #path('travello/',include('travello.urls')),
     
+#]
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('calendly_app.urls')),
 ]
 
-urlpatterns= urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+#urlpatterns= urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+#urlpatterns = [
+    #path('api/', include('store.urls')),
+#]

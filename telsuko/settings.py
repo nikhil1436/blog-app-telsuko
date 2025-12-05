@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'rest_framework',
+    'store',
+    'calendly_app'
 ]
 
 MIDDLEWARE = [
@@ -142,7 +144,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Optional: Require login by default
+        'rest_framework.permissions.AllowAny',  # Optional: Require login by default
     ]
 }
 
@@ -156,15 +158,7 @@ CACHES = {
     }
 }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
-    }
-}
+
 
 CACHES = {
     "default": {
@@ -178,3 +172,4 @@ CACHES = {
 
 # Optional: Define cache timeout (e.g., 15 minutes)
 CACHE_TTL = 60 * 15  # 900 seconds
+

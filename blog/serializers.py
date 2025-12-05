@@ -12,8 +12,6 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         return data
 
   
-
-
 class PostSerializer(serializers.ModelSerializer):
 
     #getget
