@@ -27,11 +27,14 @@ from django.conf.urls.static import static
     #path('travello/',include('travello.urls')),
     
 #]
+#urlpatterns = [
+   # path('admin/', admin.site.urls),
+    #path('api/', include('calendly_app.urls')),
+#]
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('calendly_app.urls')),
+    path('api/', include('jobs.urls')),
 ]
-
 
 #urlpatterns= urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 #urlpatterns = [

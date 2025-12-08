@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'rest_framework',
     'store',
-    'calendly_app'
+    'calendly_app',
+    'jobs',
 ]
 
 MIDDLEWARE = [

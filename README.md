@@ -1,60 +1,62 @@
-# 🌐 Calendly Integration - Django Backend
+# Django Job Portal API
 
-A backend solution for managing doctors' schedules, fetching available time slots, and creating appointments using Django and Django REST Framework.
+This is a mini Job Portal API built using Django and Django Rest Framework as part of a technical coding assignment.
+
+---
+
+## ✅ Features Implemented
+
+- Create Job Post
+- List All Jobs
+- Apply for a Job
+- Job Summary with Applicant Count (Most Applied First)
+- Custom Rate Limiting: max 3 applications per email per day
+
+---
+
+## ✅ API Endpoints
+
+| Feature      | Method | Endpoint           |
+|-------------|--------|------------------|
+| Create Job  | POST   | /api/create-job/  |
+| List Jobs   | GET    | /api/jobs/        |
+| Apply Job   | POST   | /api/apply/       |
+| Job Summary | GET    | /api/job-summary/ |
+---
+
+## ✅ Rate Limiting Logic
+
+- If the same email tries to apply for more than **3 jobs in one day**, the API blocks the request with:
+```json
+{
+  "error": "You can apply to only 3 jobs per day"
+}
+
+-HTTP Status Code: 429
+
+---
+
+## ✅ Screenshots
+
+All API testing screenshots are available in the `screenshots/` folder:
+- Create Job Success
+- List Jobs
+- Apply Job Success
+- Rate Limit Block (4th Attempt)
+- Job Summary with Applicant Count
+
+---
+
+## ✅ Setup Instructions
+
+python -m venv env
+env\Scripts\activate   #for Windows
+pip install -r requirements.txt
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 
 
-## ✅ Features
-- Fetch doctor schedules (working hours, existing appointments)
-- Get available time slots dynamically
-- Create new appointments
-- Handle different appointment types with durations:
-- General Consultation: 30 minutes
-- Follow-up: 15 minutes
-- Physical Exam: 45 minutes
-- Specialist Consultation: 60 minutes
-- Tested with Postman
-
-## 🔧 Tech Stack
-- Python, Django, Django REST Framework (DRF)
-- PostgreSQL (or SQLite)
-- Postman for API testing
-
-## 🚀 How to Run
-
-1. Create and activate a virtual environment:
-   ```bash
-   python -m venv env
-   source env/bin/activate  # Linux/Mac
-   env\Scripts\activate     # Windows
-2. Install dependencies:
-
-   pip install -r requirements.txt
-
-
-3. Apply migrations:
-
-   python manage.py migrate
-
-
-4. Create a superuser to access Admin:
-
-   python manage.py createsuperuser
-
-
-5. Run the server:
-
-   python manage.py runserver
-6. Open Admin panel to add doctors first:
-
-   http://127.0.0.1:8000/admin/
-
-
-7. Test APIs with Postman:
-
- . /api/doctors/<doctor_id>/schedule/
-
- . /api/doctors/<doctor_id>/available-slots/?date=YYYY-MM-DD&appointment_type=<type>
-
- . /api/appointments/ (POST)
-
-  
+Server will run at:
+-http://127.0.0.1:8000/
